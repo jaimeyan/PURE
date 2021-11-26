@@ -8,6 +8,8 @@ task_rel_labels = {
     'ace04': ['PER-SOC', 'OTHER-AFF', 'ART', 'GPE-AFF', 'EMP-ORG', 'PHYS'],
     'ace05': ['ART', 'ORG-AFF', 'GEN-AFF', 'PHYS', 'PER-SOC', 'PART-WHOLE'],
     'scierc': ['PART-OF', 'USED-FOR', 'FEATURE-OF', 'CONJUNCTION', 'EVALUATE-FOR', 'HYPONYM-OF', 'COMPARE'],
+    'emr': ['DIS-POS', 'DRU-DE', 'DRU-EFF', 'DRU-INDI', 'SUR-POS', 'SUR-DIS', 'SYM-POS', 'RIS-POS', 'LI-LIS', 'LI-VAL',
+            'LI-UNIT', 'LI-RMK', 'GS-RES', 'VS-VAL', 'VS-UNIT', 'PE-RES', 'PE-POS']
 }
 
 def get_labelmap(label_list):
