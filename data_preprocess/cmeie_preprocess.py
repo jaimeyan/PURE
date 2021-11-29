@@ -1,5 +1,6 @@
 import json
 import os
+from tqdm import tqdm
 
 
 def resolve_CMeIE(path):
@@ -37,7 +38,9 @@ def process_data(json_list):
 
             re_list.append([sub_start_index, sub_end_index, obj_start_index, obj_end_index, predicate])
 
-        final_res.append({'doc_key': doc_id, 'sentences': sentences_list, 'ner': ner_list, 'relations': re_list})
+        big_ner_list = [ner_list]
+        big_re_list = [re_list]
+        final_res.append({'doc_key': doc_id, 'sentences': sentences_list, 'ner': big_ner_list, 'relations': big_re_list})
         doc_id += 1
 
     return final_res
@@ -49,7 +52,9 @@ if __name__ == '__main__':
     for path in path_list:
         json_list = resolve_CMeIE(path)
         output = process_data(json_list)
-        json_res = json.dumps(output, ensure_ascii=False)
-
         with open(os.path.join(preprocessed_path, path.split('/')[-1]), 'w') as f:
-            f.write(json_res)
+            for line in tqdm(output):
+                json_res = json.dumps(line, ensure_ascii=False)
+                f.write(json_res)
+                f.write('\n')
+
