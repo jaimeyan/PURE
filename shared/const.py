@@ -14,7 +14,7 @@ task_rel_labels = {
     'ace05': ['ART', 'ORG-AFF', 'GEN-AFF', 'PHYS', 'PER-SOC', 'PART-WHOLE'],
     'scierc': ['PART-OF', 'USED-FOR', 'FEATURE-OF', 'CONJUNCTION', 'EVALUATE-FOR', 'HYPONYM-OF', 'COMPARE'],
     'emr': ['DIS-POS', 'DRU-DE', 'DRU-EFF', 'DRU-INDI', 'SUR-POS', 'SUR-DIS', 'SYM-POS', 'RIS-POS', 'LI-LIS', 'LI-VAL',
-            'LI-UNIT', 'LI-RMK', 'GS-RES', 'VS-VAL', 'VS-UNIT', 'PE-RES', 'PE-POS']
+            'LI-UNIT', 'LI-RMK', 'GS-RES', 'VS-VAL', 'VS-UNIT', 'PE-RES', 'PE-POS'],
     'cmeie': ['预防', '阶段', '就诊科室', '辅助治疗', '化疗', '放射治疗', '手术治疗', '实验室检查', '影像学检查', '辅助检查', '组织学检查',
               '内窥镜检查', '筛查', '多发群体', '发病率', '发病年龄', '多发地区', '发病性别倾向', '死亡率', '传播途径', '多发季节',
               '并发症', '病理分型', '相关（导致）', '鉴别诊断', '相关（转化）', '相关（症状）', '临床表现', '治疗后症状', '侵及周围组织转移的症状',
