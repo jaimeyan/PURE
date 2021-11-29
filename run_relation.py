@@ -483,7 +483,7 @@ if __name__ == "__main__":
     parser.add_argument("--model", default=None, type=str)
     parser.add_argument('--bert_model_dir', type=str, default=None,
                         help="the base model directory")
-    parser.add_argument("--output_dir", default=None, type=str, required=True,
+    parser.add_argument('--output_dir', type=str, default='re_output',
                         help="The output directory where the model predictions and checkpoints will be written.")
     parser.add_argument("--eval_per_epoch", default=10, type=int,
                         help="How many times it evaluates on dev set per epoch")
