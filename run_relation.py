@@ -367,8 +367,16 @@ def main(args):
         eval_step = max(1, len(train_batches) // args.eval_per_epoch)
         
         lr = args.learning_rate
+        bert_model_name = args.model
+
+        if args.bert_model_dir is not None:
+            bert_model_name = str(args.bert_model_dir) + '/'
+            # vocab_name = bert_model_name + 'vocab.txt'
+            vocab_name = bert_model_name
+            logger.info('Loading BERT model from {}'.format(bert_model_name))
+
         model = RelationModel.from_pretrained(
-            args.model, cache_dir=str(PYTORCH_PRETRAINED_BERT_CACHE), num_rel_labels=num_labels)
+            bert_model_name, cache_dir=str(PYTORCH_PRETRAINED_BERT_CACHE), num_rel_labels=num_labels)
         if hasattr(model, 'bert'):
             model.bert.resize_token_embeddings(len(tokenizer))
         elif hasattr(model, 'albert'):
@@ -472,7 +480,9 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default=None, type=str, required=True)
+    parser.add_argument("--model", default=None, type=str)
+    parser.add_argument('--bert_model_dir', type=str, default=None,
+                        help="the base model directory")
     parser.add_argument("--output_dir", default=None, type=str, required=True,
                         help="The output directory where the model predictions and checkpoints will be written.")
     parser.add_argument("--eval_per_epoch", default=10, type=int,
