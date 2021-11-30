@@ -376,7 +376,7 @@ def main(args):
             logger.info('Loading BERT model from {}'.format(bert_model_name))
 
         model = RelationModel.from_pretrained(
-            bert_model_name, cache_dir=str(PYTORCH_PRETRAINED_BERT_CACHE), num_rel_labels=num_labels, mirror='tuna')
+            bert_model_name, cache_dir=str(PYTORCH_PRETRAINED_BERT_CACHE), num_rel_labels=num_labels)
         if hasattr(model, 'bert'):
             model.bert.resize_token_embeddings(len(tokenizer))
         elif hasattr(model, 'albert'):
