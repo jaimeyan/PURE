@@ -42,7 +42,7 @@ def output_ner_predictions(model, batches, dataset, output_file):
         pred_ner = output_dict['pred_ner']
         for sample, preds in zip(batches[i], pred_ner):
             off = sample['sent_start_in_doc'] - sample['sent_start']
-            k = sample['doc_key'] + '-' + str(sample['sentence_ix'])
+            k = str(sample['doc_key']) + '-' + str(sample['sentence_ix'])
             ner_result[k] = []
             for span, pred in zip(sample['spans'], preds):
                 span_id = '%s::%d::(%d,%d)'%(sample['doc_key'], sample['sentence_ix'], span[0]+off, span[1]+off)
