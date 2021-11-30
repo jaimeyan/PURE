@@ -166,6 +166,7 @@ class EntityModel():
             vocab_name = bert_model_name
             logger.info('Loading BERT model from {}'.format(bert_model_name))
 
+        logger.info('name:{}'.format(bert_model_name))
         if args.use_albert:
             self.tokenizer = AlbertTokenizer.from_pretrained(vocab_name)
             self.bert_model = AlbertForEntity.from_pretrained(bert_model_name, num_ner_labels=num_ner_labels, max_span_length=args.max_span_length, mirror='tuna')
