@@ -58,7 +58,7 @@ def output_ner_predictions(model, batches, dataset, output_file):
         doc["predicted_ner"] = []
         doc["predicted_relations"] = []
         for j in range(len(doc["sentences"])):
-            k = doc['doc_key'] + '-' + str(j)
+            k = str(doc['doc_key']) + '-' + str(j)
             if k in ner_result:
                 doc["predicted_ner"].append(ner_result[k])
             else:
